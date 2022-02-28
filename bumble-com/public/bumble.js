@@ -30,11 +30,10 @@ function jsonp(url){
     window[random] = (data) => {
       resolve(data)
     }
-
     const script = document.createElement("script")
     script.src =`${url}?callback=${random}`
     script.onload = () => {
-      script.remove()
+      script.remove() //删掉<script>标签
     }
     script.onerror = () => {
       reject()
